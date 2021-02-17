@@ -13,6 +13,7 @@ const MM01Presenter = ({
  logoutHandler,
  changeScreen,
  getCookieData,
+ cookies,
 }) => {
  return (
   <Wrapper height={"100vh"}>

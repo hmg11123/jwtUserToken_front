@@ -5,6 +5,7 @@ export const GET_USER = gql`
   getUser(name: $name, password: $password) {
    isLogin
    login_user
+   #    cookie
   }
  }
 `;

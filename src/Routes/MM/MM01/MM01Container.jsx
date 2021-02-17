@@ -12,8 +12,6 @@ const MM01Container = () => {
  const [changeScreen, setChangeScreen] = useState(false);
  const [cookies, setCookie, removeCookie] = useCookies(["login"]);
  const [getUserMutation] = useMutation(GET_USER);
- const [dataFlag, setDataFlag] = useState(true);
-
  const {
   data: getCookieData,
   loading: getCookieloading,
@@ -24,7 +22,6 @@ const MM01Container = () => {
   },
  });
 
- console.log(getCookieData && getCookieData.getCookie);
  const loginHandler = async () => {
   const { data } = await getUserMutation({
    variables: {
@@ -33,13 +30,10 @@ const MM01Container = () => {
    },
   });
   if (data.getUser.isLogin) {
+   //    setCookie("login", data.getUser.login_user, {
+   //     httpOnly: true,
+   //    });
    toast.info("성공");
-   setCookie("login", data.getUser.login_user, [
-    {
-     //  secure: true,
-     httpOnly: true,
-    },
-   ]);
    console.log(cookies);
    setChangeScreen(true);
   } else {
